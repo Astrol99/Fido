@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "browser_action": {
+    "default_title": "Fido",
+    "default_popup": "popup/"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://www.myon.com/reader/index.html?a=*"],
+      "js": ["myon.js"]
+    }
+  ],
+
+  "default_locale": "en",
+
+  "description": "A bundle of tools that assist and automate online learning platforms",
+
+  "name": "Fido",
+
+  "permissions": ["tabs"],
+
+  "version": "0.1"
+}
