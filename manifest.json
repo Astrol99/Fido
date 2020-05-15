@@ -3,7 +3,7 @@
 
   "browser_action": {
     "default_title": "Fido",
-    "default_popup": "popup/"
+    "default_popup": "popup/index.html"
   },
 
   "content_scripts": [
