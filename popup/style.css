@@ -1,6 +1,10 @@
-<style>
-table, th, td {
-    border: 1px solid rgb(5, 40, 136);
-    border-collapse: collapse;
+body {
+    text-align: center;
+    background: rgba(41, 19, 100, 0.685);
+    color: rgb(237, 236, 243);
 }
-</style>
+
+a {
+    text-decoration: none;
+    color: rgb(2, 160, 252);
+}
