@@ -1,10 +1,7 @@
 body {
+    padding: 25px;
     text-align: center;
-    color: rgb(237, 236, 243);
     font-family: sans-serif;
-
-    background-image: url("https://wallpapersmug.com/download/2560x1440/7108f3/oneplus-6-stock-colorful-gradients-4k.jpg");
-    background-size: 500px;
 }
 
 a {
