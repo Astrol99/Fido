@@ -4,8 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fido | MyOn</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Fido  | MyOn</h1>
+    <div class="heading">
+        <h1>Fido | MyOn</h1>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="textContent">
+            <p>Please enter a book in order to start<br>using the AutoMyOn module</p>
+        </div>
+        <div class="widgets">
+            <div class="sliders">
+                <span id="readTimeSpan" class="font-weight-bold ml-2"></span>
+                <form class="range-field my-5">
+                    <label>Read Time</label>
+                    <input id="readTimeSlider" class="no-border" type="range" value="100" min="0" max="200"/>
+                </form>
+
+                <span id="delayTimeSpan" class="font-weight-bold ml-2"></span>
+                <form class="range-field my-5">
+                    <label>Delay Between Pages</label>
+                    <input id="delayTimeSlider" class="no-border" type="range" value="60" min="0" max="120"/>
+                </form>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-primary btn-lg">Start Auto Read</button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+body {
+    padding: 25px;
+    text-align: center;
+}
+
+input {
+    margin: auto;
+}
+
+span {
+    font-size: 30px;
+    padding: -50px;
+}
