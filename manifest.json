@@ -7,7 +7,11 @@
 
   "browser_action": {
     "default_title": "Fido",
-    "default_popup": "popup/index.html"
+    "default_popup": "popups/index.html"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
   },
 
   "content_scripts": [
