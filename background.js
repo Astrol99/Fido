@@ -1,20 +1,14 @@
-function switchPopup(url) {
+function switchPopup(tabId, url) {
     switch (true) {
         case url.includes("https://www.myon.com/reader/index.html?a="):
-            console.log("Changed default popup to myon");
+            browser.browserAction.setPopup({tabId: tabId, popup: "popups/myon/myon.html"});
             break;
         default:
-            console.log("Changed default popup to default popup");
+            browser.browserAction.setPopup({tabId: tabId, popup: "popups/index.html"});
             break;
     }
 }
 
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
-    switchPopup(tabInfo.url);
+    switchPopup(tabId, tabInfo.url);
 });
-
-/*
-1. Get array of open tabs
-2. Iterate through array and if url contains myon book url
-3. Set default popup for that tabId with the myon popup
-*/
