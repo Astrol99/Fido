@@ -19,7 +19,7 @@ function dynamicSliderValue(slider, span, type) {
 
 button.addEventListener("click", () => {
     let msg;
-    const myonTabID = getMyonTabID();
+
     start = !start;
 
     // Disable/Enable sliders according to start variable
@@ -33,8 +33,8 @@ button.addEventListener("click", () => {
 
         msg = {
             signal: start,
-            readTime: readTimeSlider.value,
-            delayTime: delayTimeSlider.value
+            readTime: parseInt(readTimeSlider.value),
+            delayTime: parseInt(delayTimeSlider.value)
         };
 
     } else if (!start) {
@@ -47,12 +47,11 @@ button.addEventListener("click", () => {
         };
     }
 
-    browser.tabs.sendMessage(myonTabID, msg);
-});
-
-// Safe to assume that the current tab is myon
-function getMyonTabID() {
+    // Safe to assume that the current tab is myon
     browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
-        return tabs[0].id;
+        const myonTabID = tabs[0].id;
+        console.log(`myon/main.js -> contentScripts/myon.js: Target Tab ID: ${myonTabID}\nMessage Sent:\n`);
+        console.log(msg);
+        browser.tabs.sendMessage(myonTabID, msg);
     }, console.error);
-}
+});
