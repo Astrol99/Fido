@@ -50,7 +50,7 @@ button.addEventListener("click", () => {
     // Safe to assume that the current tab is myon
     browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
         const myonTabID = tabs[0].id;
-        console.log(`myon/main.js -> contentScripts/myon.js: Target Tab ID: ${myonTabID}\nMessage Sent:\n`);
+        console.log(`myon/main.js -> contentScripts/myon.js:\nTarget Tab ID: ${myonTabID}\nMessage Sent:\n`);
         console.log(msg);
         browser.tabs.sendMessage(myonTabID, msg);
     }, console.error);
