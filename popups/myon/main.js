@@ -18,6 +18,8 @@ function dynamicSliderValue(slider, span, type) {
 }
 
 button.addEventListener("click", () => {
+    let msg;
+    const myonTabID = getMyonTabID();
     start = !start;
 
     // Disable/Enable sliders according to start variable
@@ -28,9 +30,29 @@ button.addEventListener("click", () => {
         // Change button style to bootstrap danger btn and text to "stop"
         button.innerHTML = "Stop Auto Read";
         button.className = "btn btn-danger btn-lg";
+
+        msg = {
+            signal: start,
+            readTime: readTimeSlider.value,
+            delayTime: delayTimeSlider.value
+        };
+
     } else if (!start) {
         // Original Style
         button.innerHTML = "Start Auto Read";
-        button.className = "btn btn-outline-primary btn-lg"
+        button.className = "btn btn-outline-primary btn-lg";
+
+        msg = {
+            signal: start
+        };
     }
+
+    browser.tabs.sendMessage(myonTabID, msg);
 });
+
+// Safe to assume that the current tab is myon
+function getMyonTabID() {
+    browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
+        return tabs[0].id;
+    }, console.error);
+}
