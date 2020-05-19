@@ -17,9 +17,18 @@ browser.runtime.onMessage.addListener(request => {
 });
 
 function startAutoRead(request) {
-
+    
 }
 
 function stopAutoRead() {
 
+}
+
+function turnPage() {
+    const nxtPageBtn = document.getElementsByClassName("stage_button -rightArrow")[0];
+    nxtPageBtn.click();
+}
+
+function secToMs(sec) {
+    return sec * 1000;
 }
