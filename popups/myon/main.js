@@ -5,13 +5,12 @@ const readTimeSlider = document.getElementById("readTimeSlider");
 const delayTimeSpan = document.getElementById("delayTimeSpan");
 const delayTimeSlider = document.getElementById("delayTimeSlider");
 
-readTimeSpan.innerHTML = `${readTimeSlider.value} Minutes`;
-delayTimeSpan.innerHTML = `${delayTimeSlider.value} Seconds`;
+dynamicSliderValue(readTimeSlider, readTimeSpan, "Minutes");
+dynamicSliderValue(delayTimeSlider, delayTimeSpan, "Seconds");
 
-readTimeSlider.oninput = () => {
-    readTimeSpan.innerHTML = `${readTimeSlider.value} Minutes`;
-}
-
-delayTimeSlider.oninput = () => {
-    delayTimeSpan.innerHTML = `${delayTimeSlider.value} Seconds`;
+function dynamicSliderValue(slider, span, type) {
+    span.innerHTML = `${slider.value} ${type}`;
+    slider.oninput = () => {
+        span.innerHTML = `${slider.value} ${type}`; 
+    };
 }
