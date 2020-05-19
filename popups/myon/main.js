@@ -1,3 +1,6 @@
+//TODO: Save state of popup, maybe use cookies
+//TODO: Add countdown timer 
+
 const readTimeSpan = document.getElementById("readTimeSpan");
 const readTimeSlider = document.getElementById("readTimeSlider");
 

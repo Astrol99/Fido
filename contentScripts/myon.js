@@ -1,13 +1,15 @@
+//TODO: Add some way to stop reading by finish time 
+
 browser.runtime.onMessage.addListener(request => {
     console.log("Received Message:");
     console.log(request);
     let response;
 
     if (request.signal) {
-        startAutoRead(request);
+        const intervalID = startAutoRead(request);
         response = {response: "Started AutoRead", signal: true};
     } else if (!request) {
-        stopAutoRead();
+        stopAutoRead(intervalID);
         response = {response: "Stopped AutoRead", signal: false};
     }
 
@@ -17,11 +19,11 @@ browser.runtime.onMessage.addListener(request => {
 });
 
 function startAutoRead(request) {
-    
+    return setInterval(turnPage, secToMS(request.delayTime));
 }
 
-function stopAutoRead() {
-
+function stopAutoRead(intervalID) {
+    clearInterval(intervalID);
 }
 
 function turnPage() {
