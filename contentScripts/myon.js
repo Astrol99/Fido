@@ -1,4 +1,5 @@
 //TODO: Add some way to stop reading by finish time 
+let intervalID;
 
 browser.runtime.onMessage.addListener(request => {
     console.log("Received Message:");
@@ -6,25 +7,18 @@ browser.runtime.onMessage.addListener(request => {
     let response;
 
     if (request.signal) {
-        const intervalID = startAutoRead(request);
+        intervalID = setInterval(turnPage, secToMs(request.delayTime));
         response = {response: "Started AutoRead", signal: true};
-    } else if (!request) {
-        stopAutoRead(intervalID);
+    } else if (!request.signal) {
+        clearInterval(intervalID);
         response = {response: "Stopped AutoRead", signal: false};
     }
 
     console.log("Response Message:");
     console.log(response);
+
     return Promise.resolve(response)
 });
-
-function startAutoRead(request) {
-    return setInterval(turnPage, secToMS(request.delayTime));
-}
-
-function stopAutoRead(intervalID) {
-    clearInterval(intervalID);
-}
 
 function turnPage() {
     const nxtPageBtn = document.getElementsByClassName("stage_button -rightArrow")[0];
