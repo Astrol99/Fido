@@ -52,6 +52,9 @@ button.addEventListener("click", () => {
         const myonTabID = tabs[0].id;
         console.log(`myon/main.js -> contentScripts/myon.js:\nTarget Tab ID: ${myonTabID}\nMessage Sent:\n`);
         console.log(msg);
-        browser.tabs.sendMessage(myonTabID, msg);
+        browser.tabs.sendMessage(myonTabID, msg).then(response => {
+            console.log(`Response from Tab ID ${myonTabID}:`);
+            console.log(response);
+        });
     }, console.error);
 });
