@@ -1,4 +1,3 @@
-//TODO: Add some way to stop reading by finish time 
 let intervalID;
 
 browser.runtime.onMessage.addListener(request => {
