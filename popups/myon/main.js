@@ -23,7 +23,7 @@ function dynamicSliderValue(slider, span, type) {
 }
 
 // Check if web storage exists then use the storage for parameters if it does
-if (localStorage.getItem("signal") !== null) {
+if (localStorage.getItem("signal")) {
     start = JSON.parse(localStorage.getItem("signal"));
     readTimeSlider.value = localStorage.getItem("readTime");
     delayTimeSlider.value = localStorage.getItem("delayTime");
@@ -45,7 +45,6 @@ function populateStorage() {
 
 function updateButton(signal) {
     // If auto read has started
-    console.log(signal) 
     if (signal) {
         // Change button style to bootstrap danger btn and text to "stop"
         button.innerHTML = "Stop Auto Read";
