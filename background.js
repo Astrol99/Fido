@@ -9,6 +9,12 @@ function switchPopup(tabId, url) {
     }
 }
 
+// Do this function once on startup:
+browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
+    let tab = tabs[0];
+    switchPopup(tab.id, tab.url);
+}, console.error), 
+
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
     switchPopup(tabId, tabInfo.url);
 });
