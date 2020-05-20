@@ -3,7 +3,7 @@
 
   "name": "Fido",
   "description": "A bundle of tools that assist and automate online learning platforms",
-  "version": "0.1",
+  "version": "1.0",
 
   "browser_action": {
     "default_title": "Fido",
